@@ -34,10 +34,12 @@ for (const key in textos) {
     }
 }
 
+window.addEventListener('DOMContentLoaded', function(event){
+
 const btnsNext = document.querySelectorAll('.next')
 
 for (const btn of btnsNext) {
-    btn.addEventListener('click',el =>{
+    btn.addEventListener('click', function(el){
         el.path[3].classList.toggle('hidden')
         el.path[3].nextElementSibling.classList.toggle('hidden')
         window.scrollTo(0, 0);
@@ -47,9 +49,10 @@ for (const btn of btnsNext) {
 const btnsPrev = document.querySelectorAll('.prev')
 
 for (const btn of btnsPrev) {
-    btn.addEventListener('click',el =>{
+    btn.addEventListener('click', function(el){
         el.path[3].classList.toggle('hidden')
         el.path[3].previousElementSibling.classList.toggle('hidden')
         window.scrollTo(0, 0);
     })
 }
+})
