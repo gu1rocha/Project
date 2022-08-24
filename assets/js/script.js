@@ -31,28 +31,20 @@ for (const key in textos) {
                             `
         box.innerHTML = cardContent;
         boxs.appendChild(box);
+
+        if(!!box.querySelector('.next'))
+            box.querySelector('.next').addEventListener('click', () =>{
+                box.classList.toggle('hidden')
+                box.nextElementSibling.classList.toggle('hidden')
+                window.scrollTo(0,0)
+        })
+
+        if(!!box.querySelector('.prev'))
+            box.querySelector('.prev').addEventListener('click', () =>{
+                box.classList.toggle('hidden')
+                box.previousElementSibling.classList.toggle('hidden')
+                window.scrollTo(0,0)
+        })
+    
     }
 }
-
-window.addEventListener('DOMContentLoaded', function(event){
-
-const btnsNext = document.querySelectorAll('.next')
-
-for (const btn of btnsNext) {
-    btn.addEventListener('click', function(el){
-        el.path[3].classList.toggle('hidden')
-        el.path[3].nextElementSibling.classList.toggle('hidden')
-        window.scrollTo(0, 0);
-    })
-}
-
-const btnsPrev = document.querySelectorAll('.prev')
-
-for (const btn of btnsPrev) {
-    btn.addEventListener('click', function(el){
-        el.path[3].classList.toggle('hidden')
-        el.path[3].previousElementSibling.classList.toggle('hidden')
-        window.scrollTo(0, 0);
-    })
-}
-})
